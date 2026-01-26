@@ -572,9 +572,7 @@
 </head>
 <body>
     <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">
-        <svg class="icon" id="themeIcon" viewBox="0 0 24 24">
-            <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-        </svg>
+        <svg class="icon" id="themeIcon" viewBox="0 0 24 24" aria-hidden="true"></svg>
     </button>
 
     <header>
@@ -719,7 +717,7 @@
             <div class="card">
                 <h2>Proyectos</h2>
                 <div class="project-grid">
-                    <div class="project-card" data-type="designer" data-title="Proyecto UXcode Solutions" data-description="Identidad visual completa, sistema de contenido y diseño UI para experiencias coherentes en redes sociales." data-tags="Branding|Redes Sociales|UI Design" data-images="uxcodesolutions/UXcodeSolutionsLOGO.png,uxcodesolutions/IMG_8108-Photoroom.png,uxcodesolutions/IMG_8108%202-Photoroom.png" data-highlights="Manual de marca aplicado a RRSS;Calendario de publicaciones mensuales;Kit gráfico listo para escalar campañas" data-social="https://www.instagram.com/uxcode_solutions?igsh=dGVycmJodmw5czAx">
+                    <div class="project-card" data-type="designer" data-title="Proyecto UXcode Solutions" data-description="Identidad visual completa, sistema de contenido y diseño UI para experiencias coherentes en redes sociales." data-tags="Branding|Redes Sociales|UI Design" data-images="uxcodesolutions/UXcodeSolutionsLOGO.png,uxcodesolutions/IMG_8108-Photoroom.png,uxcodesolutions/IMG_8108-2-Photoroom.png" data-highlights="Manual de marca aplicado a RRSS;Calendario de publicaciones mensuales;Kit gráfico listo para escalar campañas" data-social="https://www.instagram.com/uxcode_solutions?igsh=dGVycmJodmw5czAx">
                         <div class="project-image">
                             <img src="uxcodesolutions/UXcodeSolutionsLOGO.png" alt="Identidad UXcode Solutions">
                         </div>
@@ -733,9 +731,9 @@
                             </div>
                         </div>
                     </div>
-                    <div class="project-card" data-type="designer" data-title="Proyecto Milanis's Boutique" data-description="Sistema visual elegante para boutique, con assets publicitarios y plantillas reutilizables." data-tags="Branding|Marketing Digital|Identidad Visual" data-images="milanis%20boutique/Logotipo%20negro.png,milanis%20boutique/Isotipo%20blanco.png,milanis%20boutique/Isotipo%20negro%20rojo.png,milanis%20boutique/Logotipo%20blanco.png" data-highlights="Rediseño de logotipo e isotipo;Paquetes promocionales para temporadas;Lineamientos para redes y vitrinas" data-pdf="BrandBoard%20MB.pdf">
+                    <div class="project-card" data-type="designer" data-title="Proyecto Milanis's Boutique" data-description="Sistema visual elegante para boutique, con assets publicitarios y plantillas reutilizables." data-tags="Branding|Marketing Digital|Identidad Visual" data-images="milanis%20boutique/Logotipo_negro.png,milanis%20boutique/Isotipo_blanco.png,milanis%20boutique/Isotipo_negro_rojo.png,milanis%20boutique/Logotipo_blanco.png" data-highlights="Rediseño de logotipo e isotipo;Paquetes promocionales para temporadas;Lineamientos para redes y vitrinas" data-pdf="BrandBoard%20MB.pdf">
                         <div class="project-image">
-                            <img src="milanis%20boutique/Logotipo%20negro.png" alt="Branding Milanis's Boutique">
+                            <img src="milanis%20boutique/Logotipo_negro.png" alt="Branding Milanis's Boutique">
                         </div>
                         <div class="project-content">
                             <h3>Proyecto Milanis's Boutique</h3>
@@ -921,14 +919,32 @@
         });
 
         function updateThemeIcon(theme) {
-            if (theme === 'dark') {
-                themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>';
-            } else {
-                themeIcon.innerHTML = '<circle cx="12" cy="12" r="5" stroke="currentColor" stroke-width="2" fill="none"/><line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2"/><line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="4.22" x2="5.64" y1="5.64" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="18.36" x2="19.78" y1="19.78" stroke="currentColor" stroke-width="2"/><line x1="1" y1="12" x2="3" y1="12" stroke="currentColor" stroke-width="2"/><line x1="21" y1="12" x2="23" y1="12" stroke="currentColor" stroke-width="2"/><line x1="4.22" y1="19.78" x2="5.64" y1="18.36" stroke="currentColor" stroke-width="2"/><line x1="18.36" y1="5.64" x2="19.78" y1="4.22" stroke="currentColor" stroke-width="2"/>';
-            }
-        }
+    if (theme === 'dark') {
+        themeIcon.style.color = '#ffffff'; // 🌙 blanca
+        themeIcon.innerHTML = `
+            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </g>
+        `;
+    } else {
+        themeIcon.style.color = '#000000'; // ☀️ negra (o el color que quieras)
+        themeIcon.innerHTML = `
+            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5" />
+                <line x1="12" y1="1" x2="12" y2="3" />
+                <line x1="12" y1="21" x2="12" y2="23" />
+                <line x1="1" y1="12" x2="3" y2="12" />
+                <line x1="21" y1="12" x2="23" y2="12" />
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+            </g>
+        `;
+    }
+}
 
-        function showSection(section) {
+        function showSection(event, section) {
             const sections = document.querySelectorAll('.section');
             const buttons = document.querySelectorAll('.nav-btn');
             
